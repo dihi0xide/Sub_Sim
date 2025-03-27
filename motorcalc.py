@@ -1,6 +1,8 @@
 import math as m
 
+# Later versions of the sim will define motor as a class
 class motor:
+    # Every motor had attributes
     def __init__(self, angle, min_rpm, max_rpm, pos_x, pos_y, is_up_motor):
         self.angle = angle
         self.min_rpm = min_rpm
@@ -8,6 +10,7 @@ class motor:
         self.pos_x = pos_x
         self.pos_y = pos_y
         self.is_up_motor = is_up_motor
+    # Not finished yet however, in the future this will calculate thrust
     def start_motor(self, rpm):
         #this will be added later
         #we need to calculate a thrust force from rpm
