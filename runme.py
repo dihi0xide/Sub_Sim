@@ -3,7 +3,7 @@ import pybullet_data
 import time
 import numpy as np
 import math as m
-from motors import motor
+from sub_sim.motor import motor
 
 # Constants
 WATER_DENSITY = 1000  # kg/m^3 (density of water)
