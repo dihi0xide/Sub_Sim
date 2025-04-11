@@ -24,16 +24,17 @@ x, y, z = pos
 
 #Side Motors
 sub.motor_add(motor(-45, 0, 100, x + 0.1, y + 0.1, False))
-sub.motor_add(b = motor(45, 0, 100, x - 0.1, y + 0.1, False))
-sub.motor_add(c = motor(45, 0, 100, x - 0.1, y - 0.1, False))
-sub.motor_add(d = motor(-45, 0, 100, x + 0.1, y - 0.1, False))
+sub.motor_add(motor(45, 0, 100, x - 0.1, y + 0.1, False))
+sub.motor_add(motor(45, 0, 100, x - 0.1, y - 0.1, False))
+sub.motor_add(motor(-45, 0, 100, x + 0.1, y - 0.1, False))
 
 #Top Motors
-sub.motor_add(e = motor(0, 0, 100, x + 0.1, y + 0.1, True))
-sub.motor_add(f = motor(0, 0, 100, x - 0.1, y + 0.1, True))
-sub.motor_add(g = motor(0, 0, 100, x - 0.1, y - 0.1, True))
-sub.motor_add(h = motor(0, 0, 100, x + 0.1, y - 0.1, True))
+sub.motor_add(motor(0, 0, 100, x + 0.1, y + 0.1, True))
+sub.motor_add(motor(0, 0, 100, x - 0.1, y + 0.1, True))
+sub.motor_add(motor(0, 0, 100, x - 0.1, y - 0.1, True))
+sub.motor_add(motor(0, 0, 100, x + 0.1, y - 0.1, True))
 
-for _ in range(10000):
+while True:
     pos, orn = p.getBasePositionAndOrientation(sub.sub)
     x, y, z = pos
+    p.stepSimulation()

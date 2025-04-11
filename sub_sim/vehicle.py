@@ -17,7 +17,7 @@ class vehicle:
         if isinstance(motor, list) == True:
             raise Exception("motor_add only accepts motors")
         else:
-            self.motors.add = motor
+            self.motors.append(motor)
     def step(self, tick):
         pos, orn = p.getBasePositionAndOrientation(sub)
         vel, ang_vel = p.getBaseVelocity(sub)
