@@ -1,4 +1,13 @@
-import sub_sim
+import pybullet as p
+import pybullet_data
+
+from sub_sim.vehicle import vehicle
+from sub_sim.motor import motor
+
+WATER_DENSITY = 1000  # kg/m^3 (density of water)
+GRAVITY = -9.81       # Gravity
+DRAG_COEFFICIENT = 0.5  # Adjust for resistance
+THRUST_FORCE = 50.0    # Strength of motors
 
 # Initialize PyBullet, the physics engine
 physicsClient = p.connect(p.GUI)  # Display a GUI
@@ -9,12 +18,12 @@ p.setGravity(0, 0, GRAVITY) # Setup gravity on the Z axis at -9.81 m/s
 p.loadURDF("plane.urdf")
 
 print(vehicle)
-sub = vehicle.vehicle(10, 0.05, 0.1, [])
+sub = vehicle(10, 0.05, 0.1, [])
 pos, orn = p.getBasePositionAndOrientation(sub.sub)
 x, y, z = pos
 
 #Side Motors
-sub.motor_add(a = sub_sim.motor(-45, 0, 100, x + 0.1, y + 0.1, False))
+sub.motor_add(motor(-45, 0, 100, x + 0.1, y + 0.1, False))
 sub.motor_add(b = motor(45, 0, 100, x - 0.1, y + 0.1, False))
 sub.motor_add(c = motor(45, 0, 100, x - 0.1, y - 0.1, False))
 sub.motor_add(d = motor(-45, 0, 100, x + 0.1, y - 0.1, False))
