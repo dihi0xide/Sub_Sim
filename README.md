@@ -4,3 +4,4 @@ Sub sim is a basic underwater vehicle simulator that uses pybullet as its physic
 ## To-Do
 * Calculate thrust based on rpm of motors (motors will have a specific number and shape of fins)
 * CFD realtime in the future?
+* Create a PIP module
